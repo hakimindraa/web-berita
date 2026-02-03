@@ -24,19 +24,19 @@ export default function Header() {
     };
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-[var(--border-color)] bg-[var(--bg-primary)]/95 backdrop-blur supports-[backdrop-filter]:bg-[var(--bg-primary)]/80">
+        <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
             <div className="container">
                 <div className="flex h-16 items-center justify-between gap-4">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2 shrink-0">
-                        <div className="w-8 h-8 rounded-lg bg-[var(--accent-primary)] flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-lg bg-red-600 flex items-center justify-center">
                             <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
                             </svg>
                         </div>
                         <span className="font-bold text-lg tracking-tight">
-                            <span className="text-[var(--accent-primary)]">Portal</span>
-                            <span className="text-[var(--text-primary)]">Berita</span>
+                            <span className="text-red-600">Portal</span>
+                            <span className="text-gray-900">Berita</span>
                         </span>
                     </Link>
 
@@ -47,8 +47,8 @@ export default function Header() {
                                 key={link.href}
                                 href={link.href}
                                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${pathname === link.href
-                                        ? 'bg-[var(--bg-elevated)] text-[var(--accent-primary)]'
-                                        : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
+                                    ? 'bg-red-50 text-red-600 font-bold'
+                                    : 'text-gray-900 hover:text-red-600 hover:bg-red-50'
                                     }`}
                             >
                                 {link.label}
@@ -64,10 +64,10 @@ export default function Header() {
                                 placeholder="Cari berita..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full h-10 pl-10 pr-4 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-color)] text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--accent-primary)] focus:ring-1 focus:ring-[var(--accent-primary)] transition-colors"
+                                className="w-full h-10 pl-10 pr-4 rounded-lg bg-gray-100 border border-gray-300 text-sm text-gray-900 placeholder:text-gray-500 focus:outline-none focus:border-gray-500 focus:ring-1 focus:ring-gray-500 transition-colors"
                             />
                             <svg
-                                className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--text-muted)]"
+                                className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -82,7 +82,7 @@ export default function Header() {
                         {/* Mobile Search Toggle */}
                         <button
                             onClick={() => setIsSearchOpen(!isSearchOpen)}
-                            className="p-2 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)] transition-colors"
+                            className="p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
                             aria-label="Toggle search"
                         >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -93,7 +93,7 @@ export default function Header() {
                         {/* Mobile Menu Toggle */}
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className="p-2 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)] transition-colors"
+                            className="p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
                             aria-label="Toggle menu"
                         >
                             {isMenuOpen ? (
@@ -119,11 +119,11 @@ export default function Header() {
                                     placeholder="Cari berita..."
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
-                                    className="w-full h-10 pl-10 pr-4 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-color)] text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--accent-primary)] focus:ring-1 focus:ring-[var(--accent-primary)]"
+                                    className="w-full h-10 pl-10 pr-4 rounded-lg bg-gray-100 border border-gray-300 text-sm text-gray-900 placeholder:text-gray-500 focus:outline-none focus:border-gray-500 focus:ring-1 focus:ring-gray-500"
                                     autoFocus
                                 />
                                 <svg
-                                    className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--text-muted)]"
+                                    className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"
@@ -137,7 +137,7 @@ export default function Header() {
 
                 {/* Mobile Navigation Menu */}
                 {isMenuOpen && (
-                    <nav className="md:hidden pb-4 border-t border-[var(--border-color)] pt-4">
+                    <nav className="md:hidden pb-4 border-t border-gray-200 pt-4">
                         <div className="flex flex-col gap-1">
                             {navLinks.map((link) => (
                                 <Link
@@ -145,8 +145,8 @@ export default function Header() {
                                     href={link.href}
                                     onClick={() => setIsMenuOpen(false)}
                                     className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${pathname === link.href
-                                            ? 'bg-[var(--bg-elevated)] text-[var(--accent-primary)]'
-                                            : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
+                                        ? 'bg-gray-100 text-gray-900 font-semibold'
+                                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                                         }`}
                                 >
                                     {link.label}

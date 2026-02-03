@@ -1,15 +1,42 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import NewsCard from '../../components/NewsCard';
-import { categories, getNewsByCategory, newsArticles } from '../../data/news';
+import prisma from '@/lib/db';
 
 interface PageProps {
     params: Promise<{ slug: string }>;
 }
 
+// Transform database article for NewsCard component
+function transformArticle(article: any) {
+    return {
+        id: article.id,
+        slug: article.slug,
+        title: article.title,
+        excerpt: article.excerpt,
+        content: article.content,
+        image: article.image,
+        author: article.author,
+        publishedAt: article.publishedAt?.toISOString() || article.createdAt.toISOString(),
+        readTime: article.readTime,
+        views: article.views,
+        isFeatured: article.isFeatured,
+        isTrending: article.isTrending,
+        category: {
+            id: article.category.id,
+            name: article.category.name,
+            slug: article.category.slug,
+            color: article.category.color,
+            count: 0,
+        },
+    };
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { slug } = await params;
-    const category = categories.find(c => c.slug === slug);
+    const category = await prisma.category.findUnique({
+        where: { slug },
+    });
 
     if (!category) {
         return { title: 'Kategori Tidak Ditemukan' };
@@ -21,22 +48,26 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
 }
 
-export function generateStaticParams() {
-    return categories.map((category) => ({
-        slug: category.slug,
-    }));
-}
-
 export default async function CategoryPage({ params }: PageProps) {
     const { slug } = await params;
-    const category = categories.find(c => c.slug === slug);
+
+    // Get category from database
+    const category = await prisma.category.findUnique({
+        where: { slug },
+    });
 
     if (!category) {
         notFound();
     }
 
-    // Get news for this category (in real app, this would be filtered from database)
-    const categoryNews = newsArticles.filter(n => n.category.slug === slug);
+    // Get articles for this category from database
+    const articles = await prisma.article.findMany({
+        where: { categoryId: category.id },
+        include: { category: true },
+        orderBy: { createdAt: 'desc' },
+    });
+
+    const categoryNews = articles.map(transformArticle);
 
     return (
         <div className="py-8 md:py-12">

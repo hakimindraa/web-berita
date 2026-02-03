@@ -27,6 +27,7 @@ model Article {
   content     String
   image       String
   imageType   String   @default("url") // "url" or "upload"
+  imageCaption String? // Photo caption/credit
   author      String
   readTime    Int      @default(3)
   views       Int      @default(0)

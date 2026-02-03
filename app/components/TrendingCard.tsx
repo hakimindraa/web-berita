@@ -17,13 +17,13 @@ export default function TrendingCard({ article, rank }: TrendingCardProps) {
             case 3:
                 return 'bg-gradient-to-br from-orange-400 to-orange-600 text-white';
             default:
-                return 'bg-[var(--bg-elevated)] text-[var(--text-muted)] border border-[var(--border-color)]';
+                return 'bg-gray-100 text-gray-600 border border-gray-300';
         }
     };
 
     return (
         <Link href={`/berita/${article.slug}`} className="group block">
-            <article className="flex items-start gap-4 py-4 border-b border-[var(--border-color)] last:border-0 transition-colors hover:bg-[var(--bg-surface)]/50 -mx-2 px-2 rounded-lg">
+            <article className="flex items-start gap-4 py-4 border-b border-gray-200 last:border-0 transition-colors hover:bg-gray-50 -mx-2 px-2 rounded-lg">
                 {/* Rank Number */}
                 <div className={`w-10 h-10 shrink-0 rounded-lg flex items-center justify-center font-bold text-lg ${getRankStyle(rank)}`}>
                     {rank}
@@ -31,10 +31,10 @@ export default function TrendingCard({ article, rank }: TrendingCardProps) {
 
                 {/* Content */}
                 <div className="flex-1 min-w-0">
-                    <h4 className="font-medium text-[var(--text-primary)] line-clamp-2 group-hover:text-[var(--accent-primary)] transition-colors">
+                    <h4 className="font-medium text-gray-900 line-clamp-2 group-hover:text-red-600 transition-colors">
                         {article.title}
                     </h4>
-                    <div className="flex items-center gap-3 mt-2 text-xs text-[var(--text-muted)]">
+                    <div className="flex items-center gap-3 mt-2 text-xs text-gray-500">
                         <span className="badge badge-teknologi">
                             {article.category.name}
                         </span>

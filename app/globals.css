@@ -1,50 +1,51 @@
 @import "tailwindcss";
 
 /* ========================================
-   DESIGN SYSTEM - DARK THEME NEWS PORTAL
+   DESIGN SYSTEM - LIGHT THEME NEWS PORTAL
+   Inspired by Kompas, CNN - Clean & Readable
    ======================================== */
 
 :root {
-  /* Background Colors */
-  --bg-primary: #0a0a0a;
-  --bg-surface: #121212;
-  --bg-elevated: #1a1a1a;
-  --bg-hover: #242424;
+  /* Background Colors - Clean White */
+  --bg-primary: #ffffff;
+  --bg-surface: #f8f9fa;
+  --bg-elevated: #ffffff;
+  --bg-hover: #f0f0f0;
 
-  /* Accent Colors */
-  --accent-primary: #3b82f6;
-  --accent-secondary: #8b5cf6;
-  --accent-success: #22c55e;
-  --accent-warning: #f59e0b;
-  --accent-danger: #ef4444;
+  /* Accent Colors - Professional Blue */
+  --accent-primary: #1a73e8;
+  --accent-secondary: #5f6368;
+  --accent-success: #1e8e3e;
+  --accent-warning: #f9ab00;
+  --accent-danger: #d93025;
 
-  /* Text Colors */
-  --text-primary: #f5f5f5;
-  --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
+  /* Text Colors - High Contrast for Readability */
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-muted: #6b6b6b;
 
-  /* Border & Dividers */
-  --border-color: #27272a;
-  --border-light: #3f3f46;
+  /* Border & Dividers - Subtle */
+  --border-color: #e0e0e0;
+  --border-light: #d0d0d0;
 
-  /* Shadows & Glows */
-  --glow-primary: rgba(59, 130, 246, 0.15);
-  --glow-soft: rgba(59, 130, 246, 0.08);
-  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
-  --shadow-glow: 0 0 40px var(--glow-soft);
-  --shadow-glow-hover: 0 0 50px var(--glow-primary);
+  /* Shadows - Clean & Natural */
+  --glow-primary: rgba(26, 115, 232, 0.08);
+  --glow-soft: rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-glow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-glow-hover: 0 4px 16px rgba(0, 0, 0, 0.12);
 
-  /* Category Colors */
-  --cat-politik: #ef4444;
-  --cat-ekonomi: #22c55e;
-  --cat-teknologi: #3b82f6;
-  --cat-olahraga: #f59e0b;
-  --cat-hiburan: #ec4899;
-  --cat-kesehatan: #14b8a6;
+  /* Category Colors - Vivid for Visibility */
+  --cat-politik: #d93025;
+  --cat-ekonomi: #1e8e3e;
+  --cat-teknologi: #1a73e8;
+  --cat-olahraga: #f9ab00;
+  --cat-hiburan: #e91e63;
+  --cat-kesehatan: #00897b;
 
   /* Spacing */
-  --container-max: 1280px;
-  --container-padding: 1rem;
+  --container-max: 1200px;
+  --container-padding: 1.25rem;
 
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -60,7 +61,7 @@
 }
 
 /* ========================================
-   BASE STYLES
+   BASE STYLES - Optimized for Elderly Readability
    ======================================== */
 
 * {
@@ -69,19 +70,23 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 18px;
+  color-scheme: light !important;
+  /* Force light mode */
 }
 
 body {
-  background: var(--bg-primary);
-  color: var(--text-primary);
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #1a1a1a !important;
   font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
+  line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* ========================================
-   TYPOGRAPHY
+   TYPOGRAPHY - Larger for Elderly Readers
    ======================================== */
 
 h1,
@@ -91,45 +96,46 @@ h4,
 h5,
 h6 {
   font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.2;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--text-primary);
 }
 
 h1 {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 
 h2 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 h3 {
-  font-size: 1.125rem;
-}
-
-h4 {
   font-size: 1.25rem;
 }
 
-h5 {
+h4 {
   font-size: 1.125rem;
 }
 
-h6 {
+h5 {
   font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.95rem;
 }
 
 @media (min-width: 768px) {
   h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   h2 {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
 
   h3 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -140,7 +146,8 @@ a {
 }
 
 a:hover {
-  color: var(--accent-primary);
+  color: #dc2626;
+  text-decoration: underline;
 }
 
 /* ========================================
@@ -163,21 +170,21 @@ a:hover {
 
 /* Card Styles */
 .card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-color);
+  background: #ffffff !important;
+  border: 1px solid #e5e5e5;
   border-radius: 12px;
   overflow: hidden;
   transition: all var(--transition-base);
 }
 
 .card:hover {
-  border-color: var(--border-light);
-  box-shadow: var(--shadow-glow);
+  border-color: #d0d0d0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
 }
 
 .card-elevated {
-  background: var(--bg-elevated);
+  background: #ffffff !important;
 }
 
 /* Glow Effects */
@@ -245,14 +252,34 @@ a:hover {
   }
 }
 
-.badge-politik,
-.badge-ekonomi,
-.badge-teknologi,
-.badge-olahraga,
-.badge-hiburan,
+.badge-politik {
+  background: rgba(220, 38, 38, 0.15);
+  color: #dc2626;
+}
+
+.badge-ekonomi {
+  background: rgba(22, 163, 74, 0.15);
+  color: #16a34a;
+}
+
+.badge-teknologi {
+  background: rgba(124, 58, 237, 0.15);
+  color: #7c3aed;
+}
+
+.badge-olahraga {
+  background: rgba(234, 88, 12, 0.15);
+  color: #ea580c;
+}
+
+.badge-hiburan {
+  background: rgba(219, 39, 119, 0.15);
+  color: #db2777;
+}
+
 .badge-kesehatan {
-  background: rgba(59, 130, 246, 0.15);
-  color: var(--accent-primary);
+  background: rgba(6, 182, 212, 0.15);
+  color: #0891b2;
 }
 
 /* Section Headers */
@@ -266,7 +293,7 @@ a:hover {
 .section-title {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #1a1a1a;
   display: flex;
   align-items: center;
   gap: 0.375rem;
@@ -283,7 +310,7 @@ a:hover {
   content: '';
   width: 3px;
   height: 1rem;
-  background: var(--accent-primary);
+  background: #dc2626;
   border-radius: 2px;
 }
 

@@ -10,61 +10,9 @@ export default function Footer() {
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--accent-primary)]/5 to-[var(--bg-surface)]" />
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--accent-primary)]/10 blur-[120px] rounded-full" />
 
-            {/* Aspirasi & Kontak Banner */}
-            <div className="relative container">
-                <div className="relative -mb-16 z-10">
-                    <div className="bg-gradient-to-r from-[var(--accent-primary)]/20 via-[var(--accent-secondary)]/20 to-[var(--accent-primary)]/20 rounded-2xl p-8 md:p-10 border border-[var(--border-light)] backdrop-blur-sm">
-                        <div className="flex flex-col lg:flex-row items-start justify-between gap-8">
-                            <div className="text-center lg:text-left flex items-start gap-4 lg:max-w-sm">
-                                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--accent-primary)] to-[var(--accent-secondary)] flex items-center justify-center shadow-lg shadow-[var(--accent-primary)]/25 shrink-0">
-                                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 className="text-xl md:text-2xl font-bold text-[var(--text-primary)] mb-2">
-                                        Sampaikan Aspirasi Anda
-                                    </h3>
-                                    <p className="text-sm text-[var(--text-secondary)]">
-                                        Punya kritik, saran, atau ingin melaporkan berita? Sampaikan kepada kami dan tim redaksi akan meninjau pesan Anda.
-                                    </p>
-                                </div>
-                            </div>
-                            <form className="flex-1 w-full lg:max-w-lg space-y-3">
-                                <div className="flex flex-col sm:flex-row gap-3">
-                                    <input
-                                        type="text"
-                                        placeholder="Nama Anda"
-                                        className="flex-1 h-11 px-4 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-color)] text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--accent-primary)] focus:ring-2 focus:ring-[var(--accent-primary)]/20 transition-all"
-                                    />
-                                    <input
-                                        type="email"
-                                        placeholder="Email Anda"
-                                        className="flex-1 h-11 px-4 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-color)] text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--accent-primary)] focus:ring-2 focus:ring-[var(--accent-primary)]/20 transition-all"
-                                    />
-                                </div>
-                                <textarea
-                                    placeholder="Tulis pesan, kritik, atau saran Anda di sini..."
-                                    rows={3}
-                                    className="w-full px-4 py-3 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-color)] text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--accent-primary)] focus:ring-2 focus:ring-[var(--accent-primary)]/20 transition-all resize-none"
-                                />
-                                <button
-                                    type="submit"
-                                    className="w-full sm:w-auto h-11 px-8 rounded-xl bg-[var(--accent-primary)] text-white font-semibold hover:bg-[var(--accent-primary)]/90 hover:shadow-lg hover:shadow-[var(--accent-primary)]/25 transition-all flex items-center justify-center gap-2"
-                                >
-                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                                    </svg>
-                                    <span>Kirim Pesan</span>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             {/* Main Footer */}
-            <div className="relative bg-[var(--bg-surface)] border-t border-[var(--border-color)] pt-24 pb-8">
+            <div className="relative bg-gray-100 border-t border-gray-200 pt-12 pb-8">
                 <div className="container">
                     <div className="grid grid-cols-2 md:grid-cols-6 gap-8 lg:gap-12">
                         {/* Brand - Takes 2 columns */}

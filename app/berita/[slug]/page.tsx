@@ -20,6 +20,7 @@ function transformArticle(article: any) {
         excerpt: article.excerpt,
         content: article.content,
         image: article.image,
+        imageCaption: article.imageCaption,
         author: article.author,
         publishedAt: article.publishedAt?.toISOString() || article.createdAt.toISOString(),
         readTime: article.readTime,
@@ -59,16 +60,23 @@ function formatContent(content: string): string {
 
     // Wrap each paragraph in <p> tags with proper styling
     return paragraphs.map((p, index) => {
-        // First paragraph gets bold styling for opening line (like JAKARTA, KOMPAS.com -)
+        // First paragraph gets bold styling for opening line (like JAKARTA, detikcom -)
         if (index === 0 && p.includes(' - ')) {
-            const [location, rest] = p.split(' - ');
-            return `<p class="mb-4"><strong>${location}</strong> - ${rest}</p>`;
+            const dashIndex = p.indexOf(' - ');
+            const location = p.substring(0, dashIndex);
+            const rest = p.substring(dashIndex + 3);
+            return `<p class="mb-5 text-gray-800 leading-relaxed"><strong class="text-gray-900">${location}</strong> - ${rest}</p>`;
         }
         // Check if it's a "Baca juga:" style line
         if (p.toLowerCase().startsWith('baca juga:') || p.toLowerCase().startsWith('baca juga :')) {
-            return `<p class="my-6 p-4 border-l-4 border-[var(--accent-primary)] bg-[var(--bg-surface)] rounded-r-lg"><strong>Baca juga:</strong> ${p.substring(p.indexOf(':') + 1).trim()}</p>`;
+            const linkText = p.substring(p.indexOf(':') + 1).trim();
+            return `<div class="my-6 py-3 border-t border-b border-gray-200"><span class="text-gray-600 font-medium">Baca juga:</span> <a href="#" class="text-red-600 hover:underline font-medium">${linkText}</a></div>`;
         }
-        return `<p class="mb-4">${p}</p>`;
+        // Quote paragraphs (starts with ")
+        if (p.startsWith('"') && p.endsWith('"')) {
+            return `<p class="mb-5 text-gray-800 leading-relaxed italic">${p}</p>`;
+        }
+        return `<p class="mb-5 text-gray-800 leading-relaxed">${p}</p>`;
     }).join('\n');
 }
 
@@ -165,15 +173,20 @@ export default async function BeritaDetailPage({ params }: PageProps) {
                         </header>
 
                         {/* Featured Image */}
-                        <div className="relative aspect-video rounded-2xl overflow-hidden mb-8">
-                            <Image
-                                src={transformedArticle.image}
-                                alt={transformedArticle.title}
-                                fill
-                                className="object-cover"
-                                priority
-                            />
-                        </div>
+                        <figure className="mb-8">
+                            <div className="relative aspect-video rounded-lg overflow-hidden">
+                                <Image
+                                    src={transformedArticle.image}
+                                    alt={transformedArticle.title}
+                                    fill
+                                    className="object-cover"
+                                    priority
+                                />
+                            </div>
+                            <figcaption className="text-xs text-gray-500 mt-2 italic">
+                                Foto: {transformedArticle.imageCaption || `${transformedArticle.author}/PortalBerita`}
+                            </figcaption>
+                        </figure>
 
                         {/* Article Content */}
                         <div

@@ -20,6 +20,7 @@ interface ArticleFormProps {
         content: string;
         image: string;
         imageType: string;
+        imageCaption: string;
         author: string;
         categoryId: string;
         readTime: number;
@@ -39,6 +40,7 @@ export default function ArticleForm({ categories, initialData, mode }: ArticleFo
         content: initialData?.content || '',
         image: initialData?.image || '',
         imageType: initialData?.imageType || 'url',
+        imageCaption: initialData?.imageCaption || '',
         author: initialData?.author || '',
         categoryId: initialData?.categoryId || '',
         readTime: initialData?.readTime || 3,
@@ -258,6 +260,21 @@ export default function ArticleForm({ categories, initialData, mode }: ArticleFo
                         </button>
                     </div>
                 )}
+
+                {/* Image Caption */}
+                <div className="mt-4">
+                    <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">
+                        Keterangan Foto (Caption)
+                    </label>
+                    <input
+                        type="text"
+                        value={formData.imageCaption}
+                        onChange={(e) => setFormData(prev => ({ ...prev, imageCaption: e.target.value }))}
+                        className="w-full px-4 py-3 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-color)] text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--accent-primary)] transition-colors"
+                        placeholder="Contoh: Foto ilustrasi (Penulis/PortalBerita)"
+                    />
+                    <p className="text-xs text-[var(--text-muted)] mt-1">Format: Deskripsi foto (Sumber/Nama)</p>
+                </div>
             </div>
 
             {/* Author & Category */}

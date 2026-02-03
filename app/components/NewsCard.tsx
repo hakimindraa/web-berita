@@ -29,13 +29,13 @@ export default function NewsCard({ article, variant = 'default' }: NewsCardProps
                     <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
                         <div className="space-y-3">
                             <CategoryBadge category={article.category} size="md" asLink={false} />
-                            <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight line-clamp-3 group-hover:text-[var(--accent-primary)] transition-colors">
+                            <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight line-clamp-3 group-hover:text-red-300 transition-colors">
                                 {article.title}
                             </h2>
-                            <p className="text-[var(--text-secondary)] line-clamp-2 text-sm md:text-base">
+                            <p className="text-gray-300 line-clamp-2 text-sm md:text-base">
                                 {article.excerpt}
                             </p>
-                            <div className="flex items-center gap-3 text-sm text-[var(--text-muted)]">
+                            <div className="flex items-center gap-3 text-sm text-gray-400">
                                 <span>{article.author}</span>
                                 <span>•</span>
                                 <span>{formatDate(article.publishedAt)}</span>
@@ -66,10 +66,10 @@ export default function NewsCard({ article, variant = 'default' }: NewsCardProps
                     {/* Content */}
                     <div className="flex flex-col justify-center min-w-0">
                         <CategoryBadge category={article.category} size="sm" asLink={false} />
-                        <h3 className="font-semibold text-[var(--text-primary)] line-clamp-2 mt-2 group-hover:text-[var(--accent-primary)] transition-colors">
+                        <h3 className="font-semibold text-gray-900 line-clamp-2 mt-2 group-hover:text-red-600 transition-colors">
                             {article.title}
                         </h3>
-                        <div className="flex items-center gap-2 mt-2 text-xs text-[var(--text-muted)]">
+                        <div className="flex items-center gap-2 mt-2 text-xs text-gray-500">
                             <span>{formatDate(article.publishedAt)}</span>
                             <span>•</span>
                             <span>{article.readTime} menit</span>
@@ -83,7 +83,7 @@ export default function NewsCard({ article, variant = 'default' }: NewsCardProps
     if (variant === 'compact') {
         return (
             <Link href={`/berita/${article.slug}`} className="group block">
-                <article className="flex gap-3 py-3 border-b border-[var(--border-color)] last:border-0">
+                <article className="flex gap-3 py-3 border-b border-gray-200 last:border-0">
                     {/* Thumbnail */}
                     <div className="relative w-20 h-20 shrink-0 rounded-lg overflow-hidden">
                         <Image
@@ -96,10 +96,10 @@ export default function NewsCard({ article, variant = 'default' }: NewsCardProps
 
                     {/* Content */}
                     <div className="flex flex-col justify-center min-w-0">
-                        <h4 className="text-sm font-medium text-[var(--text-primary)] line-clamp-2 group-hover:text-[var(--accent-primary)] transition-colors">
+                        <h4 className="text-sm font-medium text-gray-900 line-clamp-2 group-hover:text-red-600 transition-colors">
                             {article.title}
                         </h4>
-                        <span className="text-xs text-[var(--text-muted)] mt-1">
+                        <span className="text-xs text-gray-500 mt-1">
                             {formatDate(article.publishedAt)}
                         </span>
                     </div>
@@ -125,13 +125,13 @@ export default function NewsCard({ article, variant = 'default' }: NewsCardProps
                 {/* Content */}
                 <div className="flex flex-col flex-1 p-2.5 sm:p-4">
                     <CategoryBadge category={article.category} size="sm" asLink={false} />
-                    <h3 className="font-semibold text-sm sm:text-base text-[var(--text-primary)] line-clamp-2 mt-2 sm:mt-3 group-hover:text-[var(--accent-primary)] transition-colors">
+                    <h3 className="font-semibold text-sm sm:text-base text-gray-900 line-clamp-2 mt-2 sm:mt-3 group-hover:text-red-600 transition-colors">
                         {article.title}
                     </h3>
-                    <p className="hidden sm:block text-sm text-[var(--text-secondary)] line-clamp-2 mt-2 flex-1">
+                    <p className="hidden sm:block text-sm text-gray-600 line-clamp-2 mt-2 flex-1">
                         {article.excerpt}
                     </p>
-                    <div className="flex items-center gap-1.5 sm:gap-2 mt-2 sm:mt-3 text-[10px] sm:text-xs text-[var(--text-muted)]">
+                    <div className="flex items-center gap-1.5 sm:gap-2 mt-2 sm:mt-3 text-[10px] sm:text-xs text-gray-500">
                         <span className="hidden sm:inline">{article.author}</span>
                         <span className="hidden sm:inline">•</span>
                         <span>{formatDate(article.publishedAt)}</span>
