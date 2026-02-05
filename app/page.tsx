@@ -115,16 +115,37 @@ export default async function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             {/* News Feed - Left Column */}
             <div className="lg:col-span-8">
-              <div className="flex items-center gap-2 mb-3 md:mb-4 pb-2 border-b-2 border-red-600">
-                <h2 className="text-sm md:text-lg font-bold text-gray-900">News Feed</h2>
+              {/* Mobile: Grid 2 kolom, Desktop: List dengan header */}
+              <div className="hidden md:flex items-center gap-2 mb-4 pb-2 border-b-2 border-red-600">
+                <h2 className="text-lg font-bold text-gray-900">News Feed</h2>
               </div>
 
-              <div className="divide-y divide-gray-200">
+              {/* Mobile: Grid 2 kolom */}
+              <div className="grid grid-cols-2 md:grid-cols-1 gap-3 md:gap-0 md:divide-y md:divide-gray-200">
                 {newsFeed.length > 0 ? (
                   newsFeed.map((article) => (
-                    <Link key={article.id} href={`/berita/${article.slug}`} className="group block py-3 md:py-4 first:pt-0">
-                      <article className="flex gap-3 md:gap-4">
-                        <div className="relative w-24 h-20 md:w-40 md:h-28 shrink-0 rounded overflow-hidden">
+                    <Link key={article.id} href={`/berita/${article.slug}`} className="group block">
+                      {/* Mobile Layout - Card Style */}
+                      <article className="md:hidden">
+                        <div className="relative w-full aspect-[4/3] rounded overflow-hidden mb-2">
+                          <Image
+                            src={article.image}
+                            alt={article.title}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                        <h3 className="font-bold text-xs text-gray-900 line-clamp-3 mb-1 group-hover:text-red-600 transition-colors leading-tight">
+                          {article.title}
+                        </h3>
+                        <span className="text-[9px] text-gray-500 uppercase font-semibold">
+                          {article.category.name}
+                        </span>
+                      </article>
+
+                      {/* Desktop Layout - List Style */}
+                      <article className="hidden md:flex gap-4 py-4 first:pt-0">
+                        <div className="relative w-40 h-28 shrink-0 rounded overflow-hidden">
                           <Image
                             src={article.image}
                             alt={article.title}
@@ -133,13 +154,13 @@ export default async function Home() {
                           />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <span className="text-[10px] md:text-xs font-semibold text-red-600">
+                          <span className="text-xs font-semibold text-red-600">
                             {article.category.name}
                           </span>
-                          <h3 className="font-semibold text-gray-900 text-sm md:text-lg line-clamp-2 mt-0.5 md:mt-1 group-hover:text-red-600 transition-colors">
+                          <h3 className="font-semibold text-gray-900 text-lg line-clamp-2 mt-0.5 group-hover:text-red-600 transition-colors">
                             {article.title}
                           </h3>
-                          <div className="flex items-center gap-1.5 md:gap-2 mt-1 md:mt-2 text-[10px] md:text-xs text-gray-500">
+                          <div className="flex items-center gap-2 mt-2 text-xs text-gray-500">
                             <span>{article.category.name}</span>
                             <span>•</span>
                             <span>{formatDate(article.publishedAt?.toISOString() || article.createdAt.toISOString())}</span>
@@ -149,7 +170,7 @@ export default async function Home() {
                     </Link>
                   ))
                 ) : (
-                  <div className="text-center py-12 text-gray-500">
+                  <div className="col-span-2 text-center py-12 text-gray-500">
                     <p>Belum ada artikel.</p>
                     <Link href="/admin/articles/new" className="text-red-600 hover:underline mt-2 inline-block">
                       Tambah Artikel
