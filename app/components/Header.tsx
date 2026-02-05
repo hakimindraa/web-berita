@@ -2,7 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+
+import SearchAutocomplete from './SearchAutocomplete';
 
 const navLinks = [
     { href: '/', label: 'Beranda' },
@@ -29,14 +32,18 @@ export default function Header() {
                 <div className="flex h-16 items-center justify-between gap-4">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2 shrink-0">
-                        <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-red-600 flex items-center justify-center">
-                            <svg className="w-4 h-4 md:w-5 md:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                            </svg>
+                        <div className="relative w-8 h-8 md:w-10 md:h-10">
+                            <Image
+                                src="/logo.png"
+                                alt="Faktara Logo"
+                                fill
+                                className="object-contain"
+                                priority
+                            />
                         </div>
                         <span className="font-bold text-sm md:text-lg tracking-tight">
                             <span className="text-red-600">Fak</span>
-                            <span className="text-gray-900">tara</span>
+                            <span className="text-black">tara</span>
                         </span>
                     </Link>
 
@@ -57,25 +64,7 @@ export default function Header() {
                     </nav>
 
                     {/* Desktop Search */}
-                    <form onSubmit={handleSearch} className="hidden md:flex items-center flex-1 max-w-md">
-                        <div className="relative w-full">
-                            <input
-                                type="text"
-                                placeholder="Cari berita..."
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full h-10 pl-10 pr-4 rounded-lg bg-gray-100 border border-gray-300 text-xs md:text-sm text-gray-900 placeholder:text-gray-500 focus:outline-none focus:border-gray-500 focus:ring-1 focus:ring-gray-500 transition-colors"
-                            />
-                            <svg
-                                className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                        </div>
-                    </form>
+                    <SearchAutocomplete />
 
                     {/* Mobile Buttons */}
                     <div className="flex items-center gap-2 md:hidden">

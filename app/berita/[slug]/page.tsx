@@ -204,7 +204,7 @@ export default async function BeritaDetailPage({ params }: PageProps) {
                         {/* Share Buttons */}
                         <ShareButtons
                             title={transformedArticle.title}
-                            url={`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/berita/${transformedArticle.slug}`}
+                            url={`/berita/${transformedArticle.slug}`}
                         />
 
                         {/* Related News */}

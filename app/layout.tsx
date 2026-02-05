@@ -20,12 +20,33 @@ export const metadata: Metadata = {
     template: "%s | Faktara",
   },
   description: "Portal berita terpercaya untuk informasi terkini seputar politik, ekonomi, teknologi, olahraga, dan berbagai topik menarik lainnya.",
-  keywords: ["berita", "news", "indonesia", "terkini", "politik", "ekonomi", "teknologi"],
+  keywords: ["berita", "news", "indonesia", "terkini", "politik", "ekonomi", "teknologi", "faktara"],
   authors: [{ name: "Faktara" }],
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
   openGraph: {
     type: "website",
     locale: "id_ID",
     siteName: "Faktara",
+    title: "Faktara - Berita Terkini Indonesia",
+    description: "Portal berita terpercaya untuk informasi terkini seputar politik, ekonomi, teknologi, olahraga, dan berbagai topik menarik lainnya.",
+    images: [
+      {
+        url: '/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Faktara Logo',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Faktara - Berita Terkini Indonesia",
+    description: "Portal berita terpercaya untuk informasi terkini",
+    images: ['/logo.png'],
   },
 };
 
@@ -36,6 +57,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
+      <head>
+        <link rel="icon" href="/logo.png" type="image/png" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >

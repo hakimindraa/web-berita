@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { categories } from '../data/news';
 
 export default function Footer() {
@@ -18,14 +19,17 @@ export default function Footer() {
                         {/* Brand - Takes 2 columns */}
                         <div className="col-span-2">
                             <Link href="/" className="inline-flex items-center gap-3 mb-5 group">
-                                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[var(--accent-primary)] to-[var(--accent-secondary)] flex items-center justify-center shadow-lg shadow-[var(--accent-primary)]/25 group-hover:shadow-[var(--accent-primary)]/40 transition-shadow">
-                                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                                    </svg>
+                                <div className="relative w-11 h-11">
+                                    <Image
+                                        src="/logo.png"
+                                        alt="Faktara Logo"
+                                        fill
+                                        className="object-contain"
+                                    />
                                 </div>
                                 <span className="font-bold text-xl tracking-tight">
-                                    <span className="text-[var(--accent-primary)]">Fak</span>
-                                    <span className="text-[var(--text-primary)]">tara</span>
+                                    <span className="text-red-600">Fak</span>
+                                    <span className="text-black">tara</span>
                                 </span>
                             </Link>
                             <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-6 max-w-xs">
