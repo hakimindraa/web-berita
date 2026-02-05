@@ -24,8 +24,8 @@ export default function Footer() {
                                     </svg>
                                 </div>
                                 <span className="font-bold text-xl tracking-tight">
-                                    <span className="text-[var(--accent-primary)]">Portal</span>
-                                    <span className="text-[var(--text-primary)]">Berita</span>
+                                    <span className="text-[var(--accent-primary)]">Fak</span>
+                                    <span className="text-[var(--text-primary)]">tara</span>
                                 </span>
                             </Link>
                             <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-6 max-w-xs">
@@ -170,7 +170,7 @@ export default function Footer() {
                     <div className="border-t border-[var(--border-color)] mt-12 pt-8">
                         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                             <div className="flex items-center gap-2 text-sm text-[var(--text-muted)]">
-                                <span>© {currentYear} PortalBerita.</span>
+                                <span>© {currentYear} Faktara.</span>
                                 <span className="hidden md:inline">•</span>
                                 <span>Dibuat dengan</span>
                                 <svg className="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 24 24">

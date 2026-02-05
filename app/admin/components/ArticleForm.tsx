@@ -271,7 +271,7 @@ export default function ArticleForm({ categories, initialData, mode }: ArticleFo
                         value={formData.imageCaption}
                         onChange={(e) => setFormData(prev => ({ ...prev, imageCaption: e.target.value }))}
                         className="w-full px-4 py-3 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-color)] text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--accent-primary)] transition-colors"
-                        placeholder="Contoh: Foto ilustrasi (Penulis/PortalBerita)"
+                        placeholder="Contoh: Foto ilustrasi (Penulis/Faktara)"
                     />
                     <p className="text-xs text-[var(--text-muted)] mt-1">Format: Deskripsi foto (Sumber/Nama)</p>
                 </div>

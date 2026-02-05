@@ -16,16 +16,16 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "PortalBerita - Berita Terkini Indonesia",
-    template: "%s | PortalBerita",
+    default: "Faktara - Berita Terkini Indonesia",
+    template: "%s | Faktara",
   },
   description: "Portal berita terpercaya untuk informasi terkini seputar politik, ekonomi, teknologi, olahraga, dan berbagai topik menarik lainnya.",
   keywords: ["berita", "news", "indonesia", "terkini", "politik", "ekonomi", "teknologi"],
-  authors: [{ name: "PortalBerita" }],
+  authors: [{ name: "Faktara" }],
   openGraph: {
     type: "website",
     locale: "id_ID",
-    siteName: "PortalBerita",
+    siteName: "Faktara",
   },
 };
 

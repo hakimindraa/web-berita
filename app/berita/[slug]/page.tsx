@@ -184,7 +184,7 @@ export default async function BeritaDetailPage({ params }: PageProps) {
                                 />
                             </div>
                             <figcaption className="text-xs text-gray-500 mt-2 italic">
-                                Foto: {transformedArticle.imageCaption || `${transformedArticle.author}/PortalBerita`}
+                                Foto: {transformedArticle.imageCaption || `${transformedArticle.author}/Faktara`}
                             </figcaption>
                         </figure>
 

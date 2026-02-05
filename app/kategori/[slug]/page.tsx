@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     return {
         title: `Berita ${category.name}`,
-        description: `Berita terkini seputar ${category.name.toLowerCase()}. Temukan informasi dan artikel terbaru tentang ${category.name.toLowerCase()} di PortalBerita.`,
+        description: `Berita terkini seputar ${category.name.toLowerCase()}. Temukan informasi dan artikel terbaru tentang ${category.name.toLowerCase()} di Faktara.`,
     };
 }
 

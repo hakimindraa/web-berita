@@ -35,8 +35,8 @@ export default function Header() {
                             </svg>
                         </div>
                         <span className="font-bold text-lg tracking-tight">
-                            <span className="text-red-600">Portal</span>
-                            <span className="text-gray-900">Berita</span>
+                            <span className="text-red-600">Fak</span>
+                            <span className="text-gray-900">tara</span>
                         </span>
                     </Link>
 
