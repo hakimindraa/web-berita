@@ -47,6 +47,7 @@ export default async function EditArticlePage({ params }: PageProps) {
                         content: article.content,
                         image: article.image,
                         imageType: article.imageType,
+                        imageCaption: article.imageCaption || '',
                         author: article.author,
                         categoryId: article.categoryId,
                         readTime: article.readTime,
