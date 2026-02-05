@@ -70,9 +70,15 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 18px;
+  font-size: 12px;
   color-scheme: light !important;
   /* Force light mode */
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
 }
 
 body {
@@ -80,7 +86,7 @@ body {
   background-color: #ffffff !important;
   color: #1a1a1a !important;
   font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
-  line-height: 1.75;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -102,22 +108,54 @@ h6 {
 }
 
 h1 {
-  font-size: 1.75rem;
+  font-size: 1.1rem;
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 h3 {
-  font-size: 1.25rem;
+  font-size: 0.9rem;
 }
 
 h4 {
-  font-size: 1.125rem;
+  font-size: 0.85rem;
 }
 
 h5 {
+  font-size: 0.8rem;
+}
+
+h6 {
+  font-size: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  h4 {
+    font-size: 1.125rem;
+  }
+
+  h5 {
+    font-size: 1rem;
+  }
+
+  h6 {
+    font-size: 0.95rem;
+  }
+}
   font-size: 1rem;
 }
 
