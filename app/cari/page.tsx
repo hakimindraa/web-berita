@@ -62,7 +62,17 @@ async function SearchResults({ query, category, date }: { query: string; categor
         take: 50,
     });
 
-    if (results.length === 0) {
+    // Transform to match NewsArticle type
+    const transformedResults = results.map(article => ({
+        ...article,
+        category: {
+            ...article.category,
+            count: 0, // Add missing count property
+        },
+        publishedAt: article.publishedAt?.toISOString() || article.createdAt.toISOString(),
+    }));
+
+    if (transformedResults.length === 0) {
         return (
             <div className="text-center py-16">
                 <div className="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-6">
@@ -93,10 +103,10 @@ async function SearchResults({ query, category, date }: { query: string; categor
     return (
         <div>
             <p className="text-gray-600 mb-6">
-                Ditemukan <span className="font-semibold text-gray-900">{results.length}</span> hasil untuk &quot;{query}&quot;
+                Ditemukan <span className="font-semibold text-gray-900">{transformedResults.length}</span> hasil untuk &quot;{query}&quot;
             </p>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
-                {results.map((article) => (
+                {transformedResults.map((article) => (
                     <NewsCard key={article.id} article={article} />
                 ))}
             </div>
