@@ -124,7 +124,7 @@ export default async function Home() {
                   newsFeed.map((article) => (
                     <Link key={article.id} href={`/berita/${article.slug}`} className="group block py-3 md:py-4 first:pt-0">
                       <article className="flex gap-3 md:gap-4">
-                        <div className="relative w-24 h-18 md:w-40 md:h-28 shrink-0 rounded overflow-hidden">
+                        <div className="relative w-24 h-20 md:w-40 md:h-28 shrink-0 rounded overflow-hidden">
                           <Image
                             src={article.image}
                             alt={article.title}
