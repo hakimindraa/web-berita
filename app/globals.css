@@ -70,15 +70,9 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 14px;
+  font-size: 18px;
   color-scheme: light !important;
   /* Force light mode */
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
 }
 
 body {
@@ -108,27 +102,27 @@ h6 {
 }
 
 h1 {
-  font-size: 1.25rem;
+  font-size: 1.75rem;
 }
 
 h2 {
-  font-size: 1.125rem;
+  font-size: 1.5rem;
 }
 
 h3 {
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 
 h4 {
-  font-size: 0.95rem;
+  font-size: 1.125rem;
 }
 
 h5 {
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 h6 {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
 }
 
 @media (min-width: 768px) {
@@ -142,18 +136,6 @@ h6 {
 
   h3 {
     font-size: 1.5rem;
-  }
-
-  h4 {
-    font-size: 1.125rem;
-  }
-
-  h5 {
-    font-size: 1rem;
-  }
-
-  h6 {
-    font-size: 0.95rem;
   }
 }
 
